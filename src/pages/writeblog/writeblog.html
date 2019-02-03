@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Write Blog</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background">
+    <ion-item>
+      
+        <ion-input type="text"  placeholder="Heading" [(ngModel)]="blogs.blogHeading"></ion-input>
+      </ion-item>
+      <ion-item>
+      
+          <ion-input type="text"  placeholder="Summary" [(ngModel)]="blogs.blogSummary"></ion-input>
+        </ion-item>
+        <ion-item>
+      
+            <ion-textarea rows="4"  placeholder="Description" multiline="true" [(ngModel)]="blogs.blogDescription" ></ion-textarea>
+          </ion-item>
+       <br>
+          <ion-chip class="button-color">
+            <ion-label value="Fashion" name="fashion"  (click)="fashion()" >Fashion</ion-label>
+          </ion-chip>
+          <br>
+            <ion-chip class="button-color">
+              <ion-label value="Travel"  (click)="travel()">Travel</ion-label>
+            </ion-chip>
+<br>
+            <button ion-button round (click)="submitBlog()" class="button-color" >Publish</button>
+            </ion-content>
+
+           
+          
+          

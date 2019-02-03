@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title> Hi {{userName}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="background-color">
+ 
+    <ion-list no-lines>
+  <ion-card *ngFor="let blog of blogs" class="cards-color"  (click)="userblogSelected(blog)">
+      
+      <ion-card-title>
+          {{blog.blogHeading}}
+
+          
+         
+          </ion-card-title>
+          <p>{{blog.blogSummary}}</p> 
+     </ion-card>
+
+    </ion-list>
+
+</ion-content>

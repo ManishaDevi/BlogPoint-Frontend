@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle >
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Feedback</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="page-center1">
+    
+      
+    <ion-item>
+      
+        <ion-input type="text" placeholder="Regarding what?" [(ngModel)]="blogs.feedbackHeading"></ion-input>
+      </ion-item>   
+      <ion-item>
+      
+          <ion-input type="text" placeholder="Please describe it in detail?" [(ngModel)]="blogs.feebackDescription"></ion-input>
+        </ion-item>     
+        <br>
+        <br>
+        <button ion-button round (click)="submitFeeback()" class="feedback-button">Submit</button>
+          
+</ion-content>

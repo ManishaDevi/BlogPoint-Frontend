@@ -1,0 +1,19 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Your Blogs</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+   
+          <ion-icon name="more" md="md-more" (click)="presentActionSheet()" class="setting-icon"></ion-icon>
+       
+  <p class="blogHeading"><b >{{blogs.blogHeading}}</b> </p>
+  <br>
+  {{blogs.blogDescription}}
+
+</ion-content>
