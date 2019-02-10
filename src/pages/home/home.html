@@ -1,33 +1,28 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle >
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title class="home-label">Home</ion-title>
-    <ion-icon  md="md-create" name="create" (click)="writeBlog()" class="write-blog"></ion-icon>
-    <ion-icon name="radio-button-on" (click)="logOut" class="logout"></ion-icon>
+  <div align="center">
+    <ion-navbar color=color1>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title class="home-label">Home</ion-title>
+      <!-- <ion-buttons end></ion-buttons> -->
+        <ion-icon md="md-create" name="create" (click)="writeBlog()" class="write-blog"></ion-icon>
 
-    
-  </ion-navbar>
- 
+        <ion-icon name="radio-button-on" (click)="logOut()" ></ion-icon>
+      <!-- </ion-buttons> -->
+    </ion-navbar>
+  </div>
 </ion-header>
 
-<ion-content padding class="background-color">
-  <ion-card *ngFor="let blogs of blogs" (click)="blogSelected(blogs)" class="cards-color">
-    <!-- <img src="/assets/imgs/Fashion.jpeg/"> -->
+<ion-content padding class="background-color" style="background-color: #ffffff">
+  <ion-card *ngFor="let blogs of blogs" (click)="blogSelected(blogs)" class="cards-color" style="width: 310px;height: 93px;background-color:#ff9900">
     <ion-card-content>
       <ion-card-title>
         {{blogs.blogHeading}}
-        </ion-card-title>
-      
-        <p>{{blogs.blogType}}</p> 
-        
-     
-      
+      </ion-card-title>
+
+      <p>{{blogs.blogType}}</p>
+
     </ion-card-content>
   </ion-card>
-
- 
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

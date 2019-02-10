@@ -1,8 +1,9 @@
 import { SignupPage } from './../signup/signup';
 import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,MenuController } from 'ionic-angular';
 import { UserProvider } from './../../provider/user/user';
+
 
 
 
@@ -18,7 +19,8 @@ export class LoginPage {
     passWord: ``,
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: UserProvider,  public menuCtrl: MenuController) {
+    this.menuCtrl.enable(false, 'myMenu');
   }
 
   signUp()
@@ -44,7 +46,8 @@ export class LoginPage {
             
             if(this.user.userName == this.userService.users.userName && this.user.passWord ==  this .userService.users.passWord)
             {
-              this.navCtrl.push(HomePage)
+              this.navCtrl.setRoot(HomePage)
+              this.menuCtrl.enable(true, 'myMenu');
             }
             else
             {

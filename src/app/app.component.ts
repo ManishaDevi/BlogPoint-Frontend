@@ -36,6 +36,7 @@ export class MyApp {
       { title: 'MyAccount', component: UserPage },
       { title: 'Password', component: PasswordPage },
       { title: 'Feedback', component: FeedbackPage }
+      
     ];
 
   }
@@ -48,8 +49,6 @@ export class MyApp {
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
 }

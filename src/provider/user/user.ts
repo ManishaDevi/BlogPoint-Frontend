@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class UserProvider {
 
-    host: string = 'http://localhost:5000'
+    host: string = 'https://blog-point.herokuapp.com/'
     headers: any = {
         'Content-Type': 'application/json'
     };

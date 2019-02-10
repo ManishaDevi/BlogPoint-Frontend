@@ -18,6 +18,7 @@ export class HomePage {
 
   }
   writeBlog() {
+    console.log("inside write blog")
     this.navCtrl.push(WriteblogPage)
   }
 
@@ -44,7 +45,7 @@ export class HomePage {
   }
   logOut()
   {
-    console.log("hi")
+    console.log("inside logout")
  this.userService.logOut().subscribe((data: any) => {
   if (data.success) {
     this.navCtrl.push(LoginPage)
