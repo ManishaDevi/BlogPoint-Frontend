@@ -19,6 +19,7 @@ import { UserPage } from '../pages/user/user';
 import { SignupPage } from '../pages/signup/signup';
 import { PasswordPage } from '../pages/password/password';
 import { BlogpagePage } from '../pages/blogpage/blogpage';
+import { NativeStorage } from '@ionic-native/native-storage';
 
 
 @NgModule({
@@ -34,14 +35,14 @@ import { BlogpagePage } from '../pages/blogpage/blogpage';
     PasswordPage,
     FeedbackPage,
     BlogpagePage
-  
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     RlTagInputModule
-  
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -56,13 +57,14 @@ import { BlogpagePage } from '../pages/blogpage/blogpage';
     FeedbackPage,
     PasswordPage,
     BlogpagePage
-  
+
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    UserProvider,
+    NativeStorage
   ]
 })
-export class AppModule {}
+export class AppModule { }

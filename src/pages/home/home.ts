@@ -1,3 +1,6 @@
+import { Platform } from 'ionic-angular';
+// import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { NativeStorage } from '@ionic-native/native-storage';
 import { UserProvider } from './../../provider/user/user';
 import { WriteblogPage } from './../writeblog/writeblog';
 import { Component } from '@angular/core';
@@ -10,13 +13,14 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  user:any=[]
+  user: any = []
   blogs: any = []
   blogType: ``
 
-  constructor(public navCtrl: NavController, private userService: UserProvider, public navParams: NavParams, ) {
+  constructor(private platform: Platform, private nativeStorage: NativeStorage, public navCtrl: NavController, private userService: UserProvider, public navParams: NavParams, ) {
 
   }
+
   writeBlog() {
     console.log("inside write blog")
     this.navCtrl.push(WriteblogPage)
@@ -26,35 +30,28 @@ export class HomePage {
 
 
     this.userService.getBlog(this.blogType).subscribe((data: any) => {
-        if (data.success) {
-          this.blogs = data.results
-        }
-        else {
-          alert(`please write blog`)
-          this.navCtrl.push(WriteblogPage)
-        }
-      })
+      if (data.success) {
+        this.blogs = data.results
+      }
+      else {
+        alert(`please write blog`)
+        this.navCtrl.push(WriteblogPage)
+      }
+    })
 
 
     console.log('ionViewDidLoad BlogListPage');
 
   }
-  blogSelected(blogs:any)
-  {
-    this.navCtrl.push(BlogpagePage,{blogs})
+
+  blogSelected(blogs: any) {
+    this.navCtrl.push(BlogpagePage, { blogs })
   }
-  logOut()
-  {
-    console.log("inside logout")
- this.userService.logOut().subscribe((data: any) => {
-  if (data.success) {
-    this.navCtrl.push(LoginPage)
-  
+
+  logOut() {
+    this.nativeStorage.clear()
+    this.navCtrl.setRoot(LoginPage)
   }
-  else{
-    this.navCtrl.push(HomePage)
-  }
-})}
-  }
+}
 
 

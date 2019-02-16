@@ -1,28 +1,60 @@
 <ion-header>
-  <div align="center">
-    <ion-navbar color=color1>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title class="home-label">Home</ion-title>
-      <!-- <ion-buttons end></ion-buttons> -->
-        <ion-icon md="md-create" name="create" (click)="writeBlog()" class="write-blog"></ion-icon>
+    <ion-navbar
+        primary
+        color="color1"
+    >
+        <!-- <ion-buttons start> -->
+        <button
+            ion-button
+            menuToggle
+        >
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <!-- </ion-buttons> -->
 
-        <ion-icon name="radio-button-on" (click)="logOut()" ></ion-icon>
-      <!-- </ion-buttons> -->
+        <ion-title>Home</ion-title>
+
+        <ion-buttons end>
+            <button
+                (click)="logOut()"
+                ion-button
+                icon-only
+            >
+                <ion-icon
+                    name="radio-button-on"
+                    (click)="logOut()"
+                ></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
-  </div>
 </ion-header>
 
-<ion-content padding class="background-color" style="background-color: #ffffff">
-  <ion-card *ngFor="let blogs of blogs" (click)="blogSelected(blogs)" class="cards-color" style="width: 310px;height: 93px;background-color:#ff9900">
-    <ion-card-content>
-      <ion-card-title>
-        {{blogs.blogHeading}}
-      </ion-card-title>
+<ion-content
+    padding
+    class="background-color"
+    style="background-color: #ffffff"
+>
+    <ion-card
+        *ngFor="let blogs of blogs"
+        (click)="blogSelected(blogs)"
+        class="cards-color"
+        style="width: 95%;height: 93px;background-color:#ff9900"
+    >
+        <ion-card-content>
+            <ion-card-title>{{blogs.blogHeading}}</ion-card-title>
 
-      <p>{{blogs.blogType}}</p>
+            <p>{{blogs.blogType}}</p>
 
-    </ion-card-content>
-  </ion-card>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+
+<div
+    (click)="writeBlog()"
+    class="write-wrapper"
+>
+    <ion-icon
+        name="create"
+        class="write-button"
+    ></ion-icon>
+</div>

@@ -1,24 +1,38 @@
-.background-color
-{
-    background-color:aliceblue;
+.background-color {
+    background-color: aliceblue;
     text-align: center
 }
-.cards-color
-{
- padding: -20px;
- background-color: #ff9900;
 
-    
+.cards-color {
+    padding: -20px;
+    background-color: #ff9900;
 }
-.logout
-{
-    position: absolute;
 
-right: 0;
-}
-.write-blog
-{
+.logout {
     position: absolute;
-top:0;
     right: 0;
+}
+
+.write-blog {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.write-wrapper {
+    height: 60px;
+    width: 60px;
+    border-radius: 101px;
+    position: fixed;
+    background-color: #ff9900;
+    z-index: 99999;
+    right: 10px;
+    bottom: 10px;
+}
+
+.write-button {
+    top: 14px;
+    left: 18px;
+    font-size: 30px;
+    position: relative;
 }

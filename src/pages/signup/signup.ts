@@ -3,7 +3,7 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserProvider } from './../../provider/user/user';
-
+import { NativeStorage } from '@ionic-native/native-storage';
 
 @IonicPage()
 @Component({
@@ -19,7 +19,11 @@ export class SignupPage {
     retypePassword: ``
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private userService:UserProvider ) {
+  constructor(
+    private nativeStorage: NativeStorage,
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userService: UserProvider) {
   }
 
   ionViewDidLoad() {
@@ -33,17 +37,15 @@ export class SignupPage {
 
     else {
       this.userService.signUp(this.user)
-        .subscribe((data: any) => { //:any will accepy any type
+        .subscribe((data: any) => { //:any will accept any type
           if (data.success) {
-            this.navCtrl.push(HomePage) 
+            this.navCtrl.setRoot(HomePage)
+            this.nativeStorage.setItem(`user`, this.user)
           }
           else {
             alert("Please try again after sometime")
-            
           }
         })
-
-
     }
   }
 }

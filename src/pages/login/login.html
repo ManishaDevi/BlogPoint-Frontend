@@ -1,24 +1,59 @@
-<ion-header class="header">
-  <ion-navbar color=color1>
-    <ion-title>BlogPoint</ion-title>
-  </ion-navbar>
-</ion-header>
+<ng-container *ngIf="isLoginScreen">
+    <ion-header class="header">
+        <ion-navbar color=color1>
+            <ion-title>BlogPoint</ion-title>
+        </ion-navbar>
+    </ion-header>
 
-<ion-content padding class="background-color" style="background-color: #ffffff">
+    <ion-content
+        padding
+        class="background-color"
+        style="background-color: #ffffff"
+    >
 
-  <ion-item class="input-color">
-    <ion-label color="primary" floating></ion-label>
-    <ion-input [(ngModel)]="user.userName"  clearInput placeholder="User Name"></ion-input>
-  </ion-item>
+        <ion-item class="input-color">
+            <ion-label
+                color="primary"
+                floating
+            ></ion-label>
+            <ion-input
+                [(ngModel)]="user.userName"
+                clearInput
+                placeholder="User Name"
+            ></ion-input>
+        </ion-item>
 
-  <ion-item class="input-color">
-    <ion-label color="primary" floating></ion-label>
-    <ion-input type="password" [(ngModel)]="user.passWord"  clearInput placeholder="Password"></ion-input>
-  </ion-item>
-  <br>
-  <br>
-  <button ion-button round (click)="logIn()" class="login-button">Log In</button>
-  <br>
-  <button ion-button round (click)="signUp()" class="login-button">Sign Up</button>
+        <ion-item class="input-color">
+            <ion-label
+                color="primary"
+                floating
+            ></ion-label>
+            <ion-input
+                type="password"
+                [(ngModel)]="user.passWord"
+                clearInput
+                placeholder="Password"
+            ></ion-input>
+        </ion-item>
+        <br>
+        <br>
+        <button
+            ion-button
+            round
+            (click)="logIn()"
+            class="login-button"
+        >
+            Log In
+        </button>
+        <br>
+        <button
+            ion-button
+            round
+            (click)="signUp()"
+            class="login-button"
+        >
+            Sign Up
+        </button>
 
-</ion-content>
+    </ion-content>
+</ng-container>
